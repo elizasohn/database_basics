@@ -11,13 +11,13 @@ describe '#Volunteer' do
         expect(volunteer).to(eq(volunteer2))
       end
     end
-    #
-    # describe(".all") do
-    #   it("returns an empty array when there are no volunteers") do
-    #     expect(Volunteer.all()).to(eq([]))
-    #   end
-    # end
-    #
+    
+    describe(".all") do
+      it("returns an empty array when there are no volunteers") do
+        expect(Volunteer.all()).to(eq([]))
+      end
+    end
+
     # describe('#save') do
     #   it("saves a volunteer") do
     #     volunteer = Volunteer.new({:name => "Pulling Ivy", :id => nil})
