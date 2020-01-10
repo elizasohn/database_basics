@@ -48,15 +48,15 @@ describe '#Project' do
       end
     end
 
-    # describe('#update') do
-    #   it("updates an project by id") do
-    #     project = Project.new({:name => "Kurt Vonnegut", :id => nil})
-    #     project.save()
-    #     project.update("Mr. Kurt Vonnegut")
-    #     expect(project.name).to(eq("Mr. Kurt Vonnegut"))
-    #   end
-    # end
-    #
+    describe('#update') do
+      it("updates an project by id") do
+        project = Project.new({:name => "Pulling Ivy", :id => nil})
+        project.save()
+        project.update("Pulling Dead Ivy")
+        expect(project.name).to(eq("Pulling Dead Ivy"))
+      end
+    end
+
     # describe('#delete') do
     #   it("deletes an project by id") do
     #     project = Project.new({:name => "Herman Melville", :id => nil})
