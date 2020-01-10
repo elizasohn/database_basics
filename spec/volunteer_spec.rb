@@ -69,17 +69,17 @@ describe '#Volunteer' do
       end
     end
 
-    # describe('.search') do
-    #   it("Searches for matching volunteers by name") do
-    #     volunteer1 = Volunteer.new({:name => "Pulling Ivy", :id => nil})
-    #     volunteer1.save()
-    #     volunteer2 = Volunteer.new({:name => "Feeding Starving Kids", :id => nil})
-    #     volunteer2.save()
-    #     volunteer3 = Volunteer.new({:name => "Feeding the Homeless", :id => nil})
-    #     volunteer3.save()
-    #     expect(Volunteer.search("Feeding")).to(eq([volunteer2, volunteer3]))
-    #   end
-    # end
+    describe('.search') do
+      it("Searches for matching volunteers by name") do
+        volunteer1 = Volunteer.new({:name => "Eliza Sohn", :project_id => 1, :id => nil})
+        volunteer1.save()
+        volunteer2 = Volunteer.new({:name => "Michel Foucault", :project_id => 1, :id => nil})
+        volunteer2.save()
+        volunteer3 = Volunteer.new({:name => "Slavoj Zsizek", :project_id => 1, :id => nil})
+        volunteer3.save()
+        expect(Volunteer.search("Eliza")).to(eq([volunteer1]))
+      end
+    end
 
     # describe('.sort') do
     #   it('sorts by alphebetical order') do
