@@ -80,17 +80,17 @@ describe '#Project' do
       end
     end
 
-    # describe('.sort') do
-    #   it('sorts by alphebetical order') do
-    #     project1 = Project.new({:name => "Pulling Ivy", :id => nil})
-    #     project1.save()
-    #     project2 = Project.new({:name => "Feeding the Homeless", :id => nil})
-    #     project2.save()
-    #     project3 = Project.new({:name => "Saving the Planet", :id => nil})
-    #     project3.save()
-    #     expect(Project.sort()).to(eq([project2, project1, project3]))
-    #   end
-    # end
+    describe('.sort') do
+      it('sorts by alphebetical order') do
+        project1 = Project.new({:name => "Pulling Ivy", :id => nil})
+        project1.save()
+        project2 = Project.new({:name => "Feeding the Homeless", :id => nil})
+        project2.save()
+        project3 = Project.new({:name => "Saving the Planet", :id => nil})
+        project3.save()
+        expect(Project.sort()).to(eq([project2, project1, project3]))
+      end
+    end
 
     # describe('#songs') do
     #   it("returns an album's songs") do
