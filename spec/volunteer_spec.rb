@@ -58,17 +58,17 @@ describe '#Volunteer' do
       end
     end
 
-    # describe('#delete') do
-    #   it("deletes an volunteer by id") do
-    #     volunteer = Volunteer.new({:name => "Pulling Ivy", :id => nil})
-    #     volunteer.save()
-    #     volunteer2 = Volunteer.new({:name => "Saving the Planet", :id => nil})
-    #     volunteer2.save()
-    #     volunteer.delete()
-    #     expect(Volunteer.all).to(eq([volunteer2]))
-    #   end
-    # end
-    #
+    describe('#delete') do
+      it("deletes an volunteer by id") do
+        volunteer = Volunteer.new({:name => "Eliza Sohn", :project_id => 1, :id => nil})
+        volunteer.save()
+        volunteer2 = Volunteer.new({:name => "Michel Foucault", :project_id => 1, :id => nil})
+        volunteer2.save()
+        volunteer.delete()
+        expect(Volunteer.all).to(eq([volunteer2]))
+      end
+    end
+
     # describe('.search') do
     #   it("Searches for matching volunteers by name") do
     #     volunteer1 = Volunteer.new({:name => "Pulling Ivy", :id => nil})
