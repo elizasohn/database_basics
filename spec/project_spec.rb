@@ -17,16 +17,16 @@ describe '#Project' do
       end
     end
 
-    # describe('#save') do
-    #   it("saves an project") do
-    #     project = Project.new({:name => "Dr. Seuss", :id => nil}) # nil added as second argument
-    #     project.save()
-    #     project2 = Project.new({:name => "John Redfield", :id => nil}) # nil added as second argument
-    #     project2.save()
-    #     expect(Project.all).to(eq([project, project2]))
-    #   end
-    # end
-    #
+    describe('#save') do
+      it("saves a project") do
+        project = Project.new({:name => "Pulling Ivy", :id => nil})
+        project.save()
+        project2 = Project.new({:name => "Feeding Starving Children", :id => nil}) 
+        project2.save()
+        expect(Project.all).to(eq([project, project2]))
+      end
+    end
+
     # describe('.clear') do
     #   it("clears all projects") do
     #     projects = Project.new({:name => "Dr. Seuss", :id => nil})
