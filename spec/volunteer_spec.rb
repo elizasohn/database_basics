@@ -28,17 +28,17 @@ describe '#Volunteer' do
       end
     end
 
-    # describe('.clear') do
-    #   it("clears all volunteers") do
-    #     volunteers = Volunteer.new({:name => "Pulling Ivy", :id => nil})
-    #     volunteers.save()
-    #     volunteers2 = Volunteer.new({:name => "Feeding Starving Children", :id => nil})
-    #     volunteers2.save()
-    #     Volunteer.clear()
-    #     expect(Volunteer.all).to(eq([]))
-    #   end
-    # end
-    #
+    describe('.clear') do
+      it("clears all volunteers") do
+        volunteers = Volunteer.new({:name => "Eliza Sohn", :project_id => 1, :id => nil})
+        volunteers.save()
+        volunteers2 = Volunteer.new({:name => "Roland Barthes", :project_id => 2, :id => nil})
+        volunteers2.save()
+        Volunteer.clear()
+        expect(Volunteer.all).to(eq([]))
+      end
+    end
+
     # describe('.find') do
     #   it("finds an volunteer by id") do
     #     volunteer = Volunteer.new({:name => "Pulling Ivy", :id => nil})
