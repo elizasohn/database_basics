@@ -100,18 +100,18 @@ describe '#Volunteer' do
       end
     end
 
-    describe('#find_by_project') do
-      it("returns a project's volunteers") do
-        project = Project.new({:name => "Pulling Ivy", :id => nil})
-        project.save()
-        volunteer1 = Volunteer.new({:name => "Eliza Sohn", :project_id => project.id, :id => nil})
-        volunteer1.save()
-        volunteer2 = Volunteer.new({:name => "Michel Foucault", :project_id => project.id, :id => nil})
-        volunteer2.save()
-        expect(project.find_by_project).to(eq([volunteer1, volunteer2]))
-      end
-    end
-#
+#     describe('#find_by_project') do
+#       it("returns a project's volunteers") do
+#         project = Project.new({:name => "Pulling Ivy", :id => nil})
+#         project.save()
+#         volunteer1 = Volunteer.new({:name => "Eliza Sohn", :project_id => project.id, :id => nil})
+#         volunteer1.save()
+#         volunteer2 = Volunteer.new({:name => "Michel Foucault", :project_id => project.id, :id => nil})
+#         volunteer2.save()
+#         expect.find_by_project).to(eq([volunteer1, volunteer2]))
+#       end
+#     end
+# #
 #     describe('#songs') do
 #       it("returns an album's songs") do
 #         album = Album.new({:name => "Giant Steps", :id => nil})

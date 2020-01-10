@@ -68,31 +68,9 @@ class Volunteer
     volunteers = Volunteer.all
     volunteers.sort { |a, b| a.name <=> b.name }
   end
-  #
+
   # def self.find_by_project(proj_id)
-  #   volunteers = []
-  #   returned_volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{@proj_id};")
-  #   returned_volunteers.each() do |volunteer|
-  #     name = volunteer.fetch('name')
-  #     id = volunteer.fetch('id').to_i
-  #     volunteers.push(Volunteer.new({:name => name, :project_id => proj_id, :id => id}))
-  #   end
-  #   volunteers
-  # end
-
-  def self.find_by_project(project_id)
-    volunteers = []
-    returned_volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{project_id};")
-    returned_volunteers.each() do |volunteer|
-      name = volunteer.fetch("name")
-      id = volunteer.fetch("id").to_i
-      volunteers.push(Volunteer.new({:name => name, :project_id => project_id, :id => id}))
-    end
-    volunteers
-  end
-
-  # def self.find_by_project(id)
-  #   results = DB.exec("SELECT * FROM projects_volunteers WHERE project_id = #{id};")
+  #   results = DB.exec("SELECT * FROM projects_volunteers WHERE project_id = #{proj_id};")
   #   volunteers = []
   #   results.each {|result|
   #     volunteer_id = result.fetch('volunteer_id')
@@ -103,5 +81,15 @@ class Volunteer
   #   }
   #   volunteers
   # end
-
+  #
+  def self.find_by_project(project_id)
+    volunteers = []
+    returned_volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{project_id};")
+    returned_volunteers.each() do |volunteer|
+      name = volunteer.fetch("name")
+      id = volunteer.fetch("id").to_i
+      volunteers.push(Volunteer.new({:name => name, :project_id => project_id, :id => id}))
+    end
+    volunteers
+  end
 end
