@@ -68,18 +68,17 @@ describe '#Project' do
       end
     end
 
-    # describe('.search') do
-    #   it("Searches for matching projects by name") do
-    #     project1 = Project.new({:name => "Gabriel Garcia Marquez", :id => nil})
-    #     project1.save()
-    #     project2 = Project.new({:name => "Vladimir Nabokov", :id => nil})
-    #     project2.save()
-    #     project3 = Project.new({:name => "Milan Kundera", :id => nil})
-    #     project3.save()
-    #
-    #     expect(Project.search("Milan")).to(eq([project3]))
-    #   end
-    # end
+    describe('.search') do
+      it("Searches for matching projects by name") do
+        project1 = Project.new({:name => "Pulling Ivy", :id => nil})
+        project1.save()
+        project2 = Project.new({:name => "Feeding Starving Kids", :id => nil})
+        project2.save()
+        project3 = Project.new({:name => "Feeding the Homeless", :id => nil})
+        project3.save()
+        expect(Project.search("Feeding")).to(eq([project2, project3]))
+      end
+    end
 
     # describe('.sort') do
     #   it('sorts by alphebetical order') do
