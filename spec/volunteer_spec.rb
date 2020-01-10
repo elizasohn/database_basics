@@ -49,15 +49,15 @@ describe '#Volunteer' do
       end
     end
 
-    # describe('#update') do
-    #   it("updates an volunteer by id") do
-    #     volunteer = Volunteer.new({:name => "Pulling Ivy", :id => nil})
-    #     volunteer.save()
-    #     volunteer.update("Pulling Dead Ivy")
-    #     expect(volunteer.name).to(eq("Pulling Dead Ivy"))
-    #   end
-    # end
-    #
+    describe('#update') do
+      it("updates an volunteer by name") do
+        volunteer = Volunteer.new({:name => "Eliza Sohn", :project_id => 1, :id => nil})
+        volunteer.save()
+        volunteer.update("Womb Service")
+        expect(volunteer.name).to(eq("Womb Service"))
+      end
+    end
+
     # describe('#delete') do
     #   it("deletes an volunteer by id") do
     #     volunteer = Volunteer.new({:name => "Pulling Ivy", :id => nil})
