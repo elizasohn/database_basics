@@ -92,6 +92,25 @@ describe '#Volunteer' do
         expect(Volunteer.sort()).to(eq([volunteer1, volunteer3, volunteer2]))
       end
     end
+
+    describe '#project_id' do
+      it 'returns the project_id of the volunteer' do
+        volunteer1 = Volunteer.new({:name => 'Eliza Sohn', :project_id => 1, :id => nil})
+        expect(volunteer1.project_id).to(eq(1))
+      end
+    end
+
+    describe('#find_by_project') do
+      it("returns a project's volunteers") do
+        project = Project.new({:name => "Pulling Ivy", :id => nil})
+        project.save()
+        volunteer1 = Volunteer.new({:name => "Eliza Sohn", :project_id => project.id, :id => nil})
+        volunteer1.save()
+        volunteer2 = Volunteer.new({:name => "Michel Foucault", :project_id => project.id, :id => nil})
+        volunteer2.save()
+        expect(project.find_by_project).to(eq([volunteer1, volunteer2]))
+      end
+    end
 #
 #     describe('#songs') do
 #       it("returns an album's songs") do
