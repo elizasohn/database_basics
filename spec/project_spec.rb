@@ -10,13 +10,13 @@ describe '#Project' do
         expect(project).to(eq(project2))
       end
     end
-    #
-    # describe(".all") do
-    #   it("returns an empty array when there are no projects") do
-    #     expect(Project.all()).to(eq([]))
-    #   end
-    # end
-    #
+
+    describe(".all") do
+      it("returns an empty array when there are no projects") do
+        expect(Project.all()).to(eq([]))
+      end
+    end
+
     # describe('#save') do
     #   it("saves an project") do
     #     project = Project.new({:name => "Dr. Seuss", :id => nil}) # nil added as second argument
