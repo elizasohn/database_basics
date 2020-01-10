@@ -38,16 +38,16 @@ describe '#Project' do
       end
     end
 
-    # describe('.find') do
-    #   it("finds an project by id") do
-    #     project = Project.new({:name => "Lorrie Moore", :id => nil})
-    #     project.save()
-    #     project2 = Project.new({:name => "Amy Hempel", :id => nil})
-    #     project2.save()
-    #     expect(Project.find(project.id)).to(eq(project))
-    #   end
-    # end
-    #
+    describe('.find') do
+      it("finds an project by id") do
+        project = Project.new({:name => "Pulling Ivy", :id => nil})
+        project.save()
+        project2 = Project.new({:name => "Feeding Starving Children", :id => nil})
+        project2.save()
+        expect(Project.find(project.id)).to(eq(project))
+      end
+    end
+
     # describe('#update') do
     #   it("updates an project by id") do
     #     project = Project.new({:name => "Kurt Vonnegut", :id => nil})

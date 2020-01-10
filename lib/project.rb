@@ -1,5 +1,5 @@
 class Project
-  attr_accessor :name
+  attr_accessor :name, :id
 
 
   def initialize(attributes)
@@ -38,9 +38,13 @@ class Project
 
   def self.find(id)
     project = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
-    name = project.fetch("name")
-    id = project.fetch("id").to_i
-    Project.new({:name => name, :id => id})
+    if project
+      name = project.fetch("name")
+      id = project.fetch("id").to_i
+      Project.new({:name => name, :id => id})
+    else
+      nil
+    end
   end
 
   def update(name)
@@ -53,5 +57,5 @@ class Project
     DB.exec("DELETE FROM volunteers WHERE projects_id = #{@id};")
   end
 
-  
+
 end
