@@ -57,17 +57,17 @@ describe '#Project' do
       end
     end
 
-    # describe('#delete') do
-    #   it("deletes an project by id") do
-    #     project = Project.new({:name => "Herman Melville", :id => nil})
-    #     project.save()
-    #     project2 = Project.new({:name => "Sylvia Plath", :id => nil})
-    #     project2.save()
-    #     project.delete()
-    #     expect(Project.all).to(eq([project2]))
-    #   end
-    # end
-    #
+    describe('#delete') do
+      it("deletes an project by id") do
+        project = Project.new({:name => "Pulling Ivy", :id => nil})
+        project.save()
+        project2 = Project.new({:name => "Saving the Planet", :id => nil})
+        project2.save()
+        project.delete()
+        expect(Project.all).to(eq([project2]))
+      end
+    end
+
     # describe('.search') do
     #   it("Searches for matching projects by name") do
     #     project1 = Project.new({:name => "Gabriel Garcia Marquez", :id => nil})

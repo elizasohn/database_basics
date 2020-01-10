@@ -54,7 +54,7 @@ class Project
 
   def delete
     DB.exec("DELETE FROM projects WHERE id = #{@id};")
-    DB.exec("DELETE FROM volunteers WHERE projects_id = #{@id};")
+    DB.exec("DELETE FROM volunteers WHERE project_id = #{@id};")
   end
 
 
