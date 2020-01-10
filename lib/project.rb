@@ -79,6 +79,11 @@ end
     Volunteer.find_by_project(self.id)
   end
 
+  def add_volunteer(volunteer_name)
+  volunteer = Volunteer.search(volunteer_name).first
+  DB.exec("INSERT INTO projects_volunteers (volunteer_id, project_id) VALUES (#{volunteer.id}, #{@id})")
+end
+
 #   def volunteers
 #   volunteers = []
 #   results = DB.exec("SELECT volunteer_id FROM projects_volunteers WHERE project_id = #{@id};")
