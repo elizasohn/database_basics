@@ -4,30 +4,30 @@ describe '#Volunteer' do
 
     describe('#==') do
       it("is the same volunteer if it has the same attributes as another volunteer") do
-        volunteer = Volunteer.new({:name => "Eliza Sohn", :project_id => nil, :id => nil})
+        volunteer = Volunteer.new({:name => "Eliza Sohn", :project_id => 1, :id => nil})
         volunteer.save()
-        volunteer2 = Volunteer.new({:name => "Eliza Sohn", :project_id => nil, :id => nil})
+        volunteer2 = Volunteer.new({:name => "Eliza Sohn", :project_id => 1, :id => nil})
         volunteer.save()
         expect(volunteer).to(eq(volunteer2))
       end
     end
-    
+
     describe(".all") do
       it("returns an empty array when there are no volunteers") do
         expect(Volunteer.all()).to(eq([]))
       end
     end
 
-    # describe('#save') do
-    #   it("saves a volunteer") do
-    #     volunteer = Volunteer.new({:name => "Pulling Ivy", :id => nil})
-    #     volunteer.save()
-    #     volunteer2 = Volunteer.new({:name => "Feeding Starving Children", :id => nil})
-    #     volunteer2.save()
-    #     expect(Volunteer.all).to(eq([volunteer, volunteer2]))
-    #   end
-    # end
-    #
+    describe('#save') do
+      it("saves a volunteer") do
+        volunteer = Volunteer.new({:name => 'Eliza Sohn', :project_id => 1, :id => nil})
+        volunteer.save()
+        volunteer2 = Volunteer.new({:name => 'Not Eliza', :project_id => 1, :id => nil})
+        volunteer2.save()
+        expect(Volunteer.all).to(eq([volunteer, volunteer2]))
+      end
+    end
+
     # describe('.clear') do
     #   it("clears all volunteers") do
     #     volunteers = Volunteer.new({:name => "Pulling Ivy", :id => nil})
