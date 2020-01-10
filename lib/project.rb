@@ -57,5 +57,8 @@ class Project
     DB.exec("DELETE FROM volunteers WHERE project_id = #{@id};")
   end
 
+  # def self.sort
+  #   DB.exec('SELECT * FROM projects ORDER BY name;')
+  # end
 
 end
