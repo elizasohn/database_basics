@@ -81,27 +81,27 @@ describe '#Volunteer' do
       end
     end
 
-    # describe('.sort') do
-    #   it('sorts by alphebetical order') do
-    #     volunteer1 = Volunteer.new({:name => "Pulling Ivy", :id => nil})
-    #     volunteer1.save()
-    #     volunteer2 = Volunteer.new({:name => "Feeding the Homeless", :id => nil})
-    #     volunteer2.save()
-    #     volunteer3 = Volunteer.new({:name => "Saving the Planet", :id => nil})
-    #     volunteer3.save()
-    #     expect(Volunteer.sort()).to(eq([volunteer2, volunteer1, volunteer3]))
-    #   end
-    # end
-
-    # describe('#songs') do
-    #   it("returns an album's songs") do
-    #     album = Album.new({:name => "Giant Steps", :id => nil})
-    #     album.save()
-    #     song = Song.new({:name => "Naima", :album_id => album.id, :id => nil})
-    #     song.save()
-    #     song2 = Song.new({:name => "Cousin Mary", :album_id => album.id, :id => nil})
-    #     song2.save()
-    #     expect(album.songs).to(eq([song, song2]))
-    #   end
-    # end
+    describe('.sort') do
+      it('sorts by alphebetical order') do
+        volunteer1 = Volunteer.new({:name => "Eliza Sohn", :project_id => 1, :id => nil})
+        volunteer1.save()
+        volunteer2 = Volunteer.new({:name => "Michel Foucault", :project_id => 1, :id => nil})
+        volunteer2.save()
+        volunteer3 = Volunteer.new({:name => "Jean Baudrillard", :project_id => 1, :id => nil})
+        volunteer3.save()
+        expect(Volunteer.sort()).to(eq([volunteer1, volunteer3, volunteer2]))
+      end
+    end
+#
+#     describe('#songs') do
+#       it("returns an album's songs") do
+#         album = Album.new({:name => "Giant Steps", :id => nil})
+#         album.save()
+#         song = Song.new({:name => "Naima", :album_id => album.id, :id => nil})
+#         song.save()
+#         song2 = Song.new({:name => "Cousin Mary", :album_id => album.id, :id => nil})
+#         song2.save()
+#         expect(album.songs).to(eq([song, song2]))
+#       end
+#     end
 end
