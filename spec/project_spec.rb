@@ -21,23 +21,23 @@ describe '#Project' do
       it("saves a project") do
         project = Project.new({:name => "Pulling Ivy", :id => nil})
         project.save()
-        project2 = Project.new({:name => "Feeding Starving Children", :id => nil}) 
+        project2 = Project.new({:name => "Feeding Starving Children", :id => nil})
         project2.save()
         expect(Project.all).to(eq([project, project2]))
       end
     end
 
-    # describe('.clear') do
-    #   it("clears all projects") do
-    #     projects = Project.new({:name => "Dr. Seuss", :id => nil})
-    #     projects.save()
-    #     projects2 = Project.new({:name => "John Redfield", :id => nil})
-    #     projects2.save()
-    #     Project.clear()
-    #     expect(Project.all).to(eq([]))
-    #   end
-    # end
-    #
+    describe('.clear') do
+      it("clears all projects") do
+        projects = Project.new({:name => "Pulling Ivy", :id => nil})
+        projects.save()
+        projects2 = Project.new({:name => "Feeding Starving Children", :id => nil})
+        projects2.save()
+        Project.clear()
+        expect(Project.all).to(eq([]))
+      end
+    end
+
     # describe('.find') do
     #   it("finds an project by id") do
     #     project = Project.new({:name => "Lorrie Moore", :id => nil})
