@@ -22,7 +22,7 @@ describe '#Volunteer' do
       it("saves a volunteer") do
         volunteer = Volunteer.new({:name => 'Eliza Sohn', :project_id => 1, :id => nil})
         volunteer.save()
-        volunteer2 = Volunteer.new({:name => 'Not Eliza', :project_id => 1, :id => nil})
+        volunteer2 = Volunteer.new({:name => 'Roland Barthes', :project_id => 1, :id => nil})
         volunteer2.save()
         expect(Volunteer.all).to(eq([volunteer, volunteer2]))
       end
@@ -32,23 +32,23 @@ describe '#Volunteer' do
       it("clears all volunteers") do
         volunteers = Volunteer.new({:name => "Eliza Sohn", :project_id => 1, :id => nil})
         volunteers.save()
-        volunteers2 = Volunteer.new({:name => "Roland Barthes", :project_id => 2, :id => nil})
+        volunteers2 = Volunteer.new({:name => "Jean Baudrillard", :project_id => 2, :id => nil})
         volunteers2.save()
         Volunteer.clear()
         expect(Volunteer.all).to(eq([]))
       end
     end
 
-    # describe('.find') do
-    #   it("finds an volunteer by id") do
-    #     volunteer = Volunteer.new({:name => "Pulling Ivy", :id => nil})
-    #     volunteer.save()
-    #     volunteer2 = Volunteer.new({:name => "Feeding Starving Children", :id => nil})
-    #     volunteer2.save()
-    #     expect(Volunteer.find(volunteer.id)).to(eq(volunteer))
-    #   end
-    # end
-    #
+    describe('.find') do
+      it("finds an volunteer by id") do
+        volunteer = Volunteer.new({:name => "Eliza Sohn", :project_id => 1, :id => nil})
+        volunteer.save()
+        volunteer2 = Volunteer.new({:name => "Michel Foucault", :project_id => 1, :id => nil})
+        volunteer2.save()
+        expect(Volunteer.find(volunteer.id)).to(eq(volunteer))
+      end
+    end
+
     # describe('#update') do
     #   it("updates an volunteer by id") do
     #     volunteer = Volunteer.new({:name => "Pulling Ivy", :id => nil})
