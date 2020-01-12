@@ -1,27 +1,21 @@
-<h1>All Sales Vinyl</h1>
+<h3>Available Projects</h3>
 
-<h3>Available Artists</h3>
-
-<% if @artists.any? %>
+<% if @projects.any? %>
 <ul>
-  <% @artists.each do |artist| %>
-    <li><a href="/artists/<%= artist.id %>"><%= artist.name %></a></li>
+  <% @projects.each do |project| %>
+    <li><a href="/projects/<%= project.id %>"><%= project.title %></a></li>
   <% end %>
 </ul>
 <% else %>
 <p>There are currently no records to display.</p>
 <% end %>
 
-<a href="/artists/new">Add a new artist</a>
+<h1>Add a new project</h1>
 
-<form action="/artists" method="get">
+<form action="/projects" method="post">
   <div class="form-group">
-    <label for="search">Search</label>
-    <input id="search" name="search" class="form-control" type="text">
+    <label for="title">Title</label>
+    <input id="n" name="title" class="form-control" type="text">
   </div>
-  <button type="submit" class="btn">Go!</button>
-</form>
-
-<form action="/artists" method="get">
-  <button type="submit" name="sort" class="btn">Sort!</button>
+  <button type="submit" class="btn">Create Project</button>
 </form>

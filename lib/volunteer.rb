@@ -68,8 +68,12 @@ class Volunteer
     volunteers = Volunteer.all
     volunteers.sort { |a, b| a.name <=> b.name }
   end
-
+  # 
   # def self.find_by_project(proj_id)
+  #   results = DB.exec("SELECT volunteers.* FROM projects")
+  #   DB.exec("JOIN projects_volunteers ON ()")
+  #
+  #
   #   results = DB.exec("SELECT * FROM projects_volunteers WHERE project_id = #{proj_id};")
   #   volunteers = []
   #   results.each {|result|
@@ -81,7 +85,7 @@ class Volunteer
   #   }
   #   volunteers
   # end
-  #
+
   def self.find_by_project(project_id)
     volunteers = []
     returned_volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{project_id};")
