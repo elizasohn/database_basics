@@ -1,21 +1,21 @@
-<h2>Artist Name: <%= @artist.name %></h2>
+<h2>Project Title: <%= @project.title %></h2>
 
 
-<h3>Artist Albums</h3>
+<h3>Volunteers</h3>
 
-  <% if @artist.albums %>
+  <% if @project.volunteers %>
     <ul>
-      <% @artist.albums.each do |album| %>
-        <li><a href="/artists/<%= @artist.id %>/albums/<%= album.id %>"><%= album.name %></a></li>
+      <% @project.volunteers.each do |volunteer| %>
+        <li><a href="/projects/<%= @project.id %>/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></li>
       <% end %>
     </ul>
   <% else %>
-    <p>There are no albums listed for this artist yet.</p>
+    <p>There are no volunteers listed for this project yet.</p>
   <% end %>
 
-<h4>Add a album:</h4>
+<h4>Add a volunteer:</h4>
 
-<form action="/artists/<%= @artist.id %>" method="post">
+<form action="/volunteers/<%= @project.id %>" method="post">
   <div class="form-group">
     <label for="album_name">Album name</label>
     <input id="album_name" name="album_name" class="form-control" type="text">
@@ -23,5 +23,5 @@
   <button type="submit" class="btn">Add album</button>
 </form>
 
-<p><a href="/artists/<%= @artist.id %>/edit">Edit artist</a></p>
-<a href="/artists">Return to artist list</a>
+<p><a href="/projects/<%= @project.id %>/edit">Edit project</a></p>
+<a href="/projects">Return to project list</a>

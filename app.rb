@@ -14,105 +14,106 @@ get('/') do
   @projects = Project.all
   erb(:index)
 end
-#
-# get ('/volunteers') do
-#   if params["search"]
-#     @volunteers = Volunteer.search(params[:search])
-#   elsif params["sort"]
-#     @volunteers = Volunteer.sort()
-#   else
-#     @volunteers = Volunteer.all
-#   end
-#   erb(:volunteers)
-# end
-#
-# get('/volunteers/:id') do
-#   @volunteer = Volunteer.find(params[:id].to_i())
-#   erb(:volunteer)
-# end
-#
-# get('/volunteers/new') do
-#   erb(:new_volunteer)
-# end
-#
-# get('/volunteers/:id/edit') do
-#   @volunteer = Volunteer.find(params[:id].to_i())
-#   erb(:edit_volunteer)
-# end
-#
-# patch('/volunteers/:id') do
-#   @volunteer = Volunteer.find(params[:id].to_i())
-#   values = *params.values
-#   @volunteer.update(params)
-#   @volunteers = Volunteer.all
-#   erb(:volunteers)
-# end
-#
-# post('/volunteers') do
-#   volunteer = Volunteer.new(params)
-#   volunteer.save()
-#   @volunteers = Volunteer.all() # Adding this line will fix the error.
-#   erb(:volunteers)
-# end
-#
-# get ('/projects') do
-#   if params["search"]
-#     @projects = Project.search(params[:search])
-#   elsif params["sort"]
-#     @projects = Project.sort()
-#   else
-#     @projects = Project.all
-#   end
-#   erb(:index)
-# end
-#
-# get('/projects/new') do
-#   erb(:new_project)
-# end
-#
-#
-# get('/projects/:id') do
-#   @project = Project.find(params[:id].to_i())
-#   erb(:project)
-# end
-#
-#
-# post('/projects/:id') do
-#   @project = Project.find(params[:id].to_i)
-#   @project.update({:volunteer_name => params[:volunteer_name]})
-#   erb(:project)
-# end
-#
-# post('/projects') do
-#   puts params
-#   project = Project.new({:title => params[:title], :id => nil})
-#   project.save()
-#   @projects = Project.all() # Adding this line will fix the error.
-#   erb(:index)
-# end
-#
-#
-# patch('/projects/:id') do
-#   @project = Project.find(params[:id].to_i())
-#   values = *params.values
-#   @project.update(params)
-#   @projects = Project.all
-#   erb(:projects)
-# end
-#
-# delete('/volunteers/:id') do
-#   @volunteer = Volunteer.find(params[:id].to_i())
-#   @volunteer.delete()
-#   @volunteers = Volunteer.all
-#   erb(:volunteers)
-# end
-#
-# delete('/projects/:id') do
-#   @project = Project.find(params[:id].to_i())
-#   @project.delete()
-#   @projects = Project.all
-#   erb(:projects)
-# end
+
+get ('/volunteers') do
+  if params["search"]
+    @volunteers = Volunteer.search(params[:search])
+  elsif params["sort"]
+    @volunteers = Volunteer.sort()
+  else
+    @volunteers = Volunteer.all
+  end
+  erb(:volunteers)
+end
+
+post('/volunteers') do
+  volunteer = Volunteer.new(params)
+  volunteer.save()
+  @volunteers = Volunteer.all() # Adding this line will fix the error.
+  erb(:volunteers)
+end
+
+get('/volunteers/new') do
+  erb(:new_volunteer)
+end
+
+get('/volunteers/:id') do
+  @volunteer = Volunteer.find(params[:id].to_i())
+  erb(:volunteer)
+end
+
+patch('/volunteers/:id') do
+  @volunteer = Volunteer.find(params[:id].to_i())
+  values = *params.values
+  @volunteer.update(params)
+  @volunteers = Volunteer.all
+  erb(:volunteers)
+end
+
+delete('/volunteers/:id') do
+  @volunteer = Volunteer.find(params[:id].to_i())
+  @volunteer.delete()
+  @volunteers = Volunteer.all
+  erb(:volunteers)
+end
+
+get('/volunteers/:id/edit') do
+  @volunteer = Volunteer.find(params[:id].to_i())
+  erb(:edit_volunteer)
+end
+
+get ('/projects') do
+  if params["search"]
+    @projects = Project.search(params[:search])
+  elsif params["sort"]
+    @projects = Project.sort()
+  else
+    @projects = Project.all
+  end
+  erb(:index)
+end
+
+post('/projects') do
+  puts params
+  project = Project.new({:title => params[:title], :id => nil})
+  project.save()
+  @projects = Project.all()
+  erb(:index)
+end
+
+get('/projects/new') do
+  erb(:new_project)
+end
+
+get('/projects/:id') do
+  @project = Project.find(params[:id].to_i())
+  erb(:project)
+end
+
+
+post('/projects/:id') do
+  @project = Project.find(params[:id].to_i)
+  @project.update({:volunteer_name => params[:volunteer_name]})
+  erb(:project)
+end
+
+patch('/projects/:id') do
+  @project = Project.find(params[:id].to_i())
+  values = *params.values
+  @project.update(params)
+  @projects = Project.all
+  erb(:projects)
+end
+
+delete('/projects/:id') do
+  @project = Project.find(params[:id].to_i())
+  @project.delete()
+  @projects = Project.all
+  erb(:projects)
+end
+
+
+
 # get('/custom_route') do
 #   "We can even create custom routes, but we should only do this when needed."
 # end
