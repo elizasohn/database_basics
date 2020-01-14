@@ -47,17 +47,15 @@ end
 
 post('/projects/:id') do
   @project = Project.find(params[:id].to_i)
-  @project.update({:volunteer_name => params[:volunteer_name]})
+  @project.update({:title => params[:title]})
   erb(:project)
 end
 
-patch('/projects/:id') do
-  @project = Project.find(params[:id].to_i())
-  values = *params.values
-  @project.update(params)
-  @projects = Project.all
-  erb(:projects)
-end
+# patch('/projects/:id') do
+#   @project = Project.find(params[:id].to_i())
+#   @project.update({:title => params[:title]})
+#   erb(:projects)
+# end
 
 delete('/projects/:id') do
   @project = Project.find(params[:id].to_i())
@@ -79,15 +77,17 @@ get ('projects/:id/volunteers') do
   else
     @volunteers = Volunteer.all
   end
+  @projects = Project.find(params[:id])
   erb(:volunteers)
 end
 
-
 post('/projects/:id/volunteers') do
-  volunteer = Volunteer.new(params)
+  volunteer = Volunteer.new({:name => params[:name], :project_id => params[:id], :id => nil})
   volunteer.save()
-  @volunteers = Volunteer.all() # Adding this line will fix the error.
+  @volunteers = Volunteer.all()
+  @projects = Project.all()
   erb(:volunteers)
+
 end
 
 #
