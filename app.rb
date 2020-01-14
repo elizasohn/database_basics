@@ -39,6 +39,13 @@ get('/projects/new') do
   erb(:new_project)
 end
 
+delete('/projects/:id/') do
+  @project = Project.find(params[:id].to_i())
+  @project.delete
+  @projects = Project.all()
+  erb(:index)
+end
+
 get('/projects/:id') do
   @project = Project.find(params[:id].to_i())
   erb(:project)
@@ -51,18 +58,19 @@ post('/projects/:id') do
   erb(:project)
 end
 
-# patch('/projects/:id') do
+patch('/projects/:id') do
+  @project = Project.find(params[:id].to_i())
+  @project.update({:title => params[:title]})
+  erb(:projects)
+end
+
+# delete('/projects/:id') do
 #   @project = Project.find(params[:id].to_i())
-#   @project.update({:title => params[:title]})
+#   @project.delete()
+#   @projects = Project.all
 #   erb(:projects)
 # end
 
-delete('/projects/:id') do
-  @project = Project.find(params[:id].to_i())
-  @project.delete()
-  @projects = Project.all
-  erb(:projects)
-end
 
 get('/projects/:id/edit') do
   @project = Project.find(params[:id].to_i())
