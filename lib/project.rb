@@ -29,7 +29,11 @@ class Project
   end
 
   def ==(project_to_compare)
-    self.title() == project_to_compare.title()
+    if project_to_compare != nil
+      (self.title() == project_to_compare.title())
+    else
+      false
+    end
   end
 
   def self.clear
@@ -46,7 +50,7 @@ class Project
       nil
     end
   end
-  
+
   def update(attributes)
   if (attributes.has_key?(:title)) && (attributes.fetch(:title) != nil)
     @title = attributes.fetch(:title)

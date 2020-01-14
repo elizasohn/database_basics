@@ -1,27 +1,27 @@
-<h1>All Sales Vinyl</h1>
+<h1>Charity Jammer</h1>
 
-<h3>Available Records</h3>
+<h3>Available Projects</h3>
 
-<% if @albums.any? %>
+<% if @projects.any? %>
 <ul>
-  <% @albums.each do |album| %>
-    <li><a href="/albums/<%= album.id %>"><%= album.name %></a></li>
+  <% @projects.each do |project| %>
+    <li><a href="/projects/<%= project.id %>"><%= project.title %></a></li>
   <% end %>
 </ul>
 <% else %>
-<p>There are currently no records to display.</p>
+<p>There are currently no projects to display.</p>
 <% end %>
 
-<a href="/albums/new">Add a new album</a>
+<a href="/projects/new">Add a new project</a>
 
-<form action="/albums" method="get">
+<form action="/projects" method="get">
   <div class="form-group">
     <label for="search">Search</label>
-    <input id="search" name="search" class="form-control" type="text">
+    <input id="search" title="search" class="form-control" type="text">
   </div>
   <button type="submit" class="btn">Go!</button>
 </form>
 
-<form action="/albums" method="get">
-  <button type="submit" name="sort" class="btn">Sort!</button>
+<form action="/projects" method="get">
+  <button type="submit" title="sort" class="btn">Sort!</button>
 </form>
