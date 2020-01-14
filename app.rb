@@ -39,7 +39,7 @@ get('/projects/new') do
   erb(:new_project)
 end
 
-delete('/projects/:id/') do
+delete('/projects/:id') do
   @project = Project.find(params[:id].to_i())
   @project.delete
   @projects = Project.all()
