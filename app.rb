@@ -104,10 +104,11 @@ end
 #   erb(:new_volunteer)
 # end
 #
-# get('/volunteers/:id') do
-#   @volunteer = Volunteer.find(params[:id].to_i())
-#   erb(:volunteer)
-# end
+get('/projects/:project_id/volunteers/:id') do
+  binding.pry
+  @volunteer = Volunteer.find(params[:id].to_i())
+  erb(:volunteer)
+end
 #
 # post('/volunteers/:id') do
 #   @volunteer = Volunteer.find(params[:id].to_i)
