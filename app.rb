@@ -28,7 +28,7 @@ get ('/projects') do
 end
 
 post('/projects') do
-  puts params
+  # puts params
   project = Project.new({:title => params[:title], :id => nil})
   project.save()
   @projects = Project.all()
@@ -47,7 +47,10 @@ delete('/projects/:id') do
 end
 
 get('/projects/:id') do
+
   @project = Project.find(params[:id].to_i())
+  @projects = Project.all()
+  @volunteers = @project.volunteers
   erb(:project)
 end
 
@@ -85,16 +88,18 @@ get ('projects/:id/volunteers') do
     @volunteers = Volunteer.sort()
   else
     @volunteers = Volunteer.all
+    @projects = Project.find(params[:id])
   end
-  @projects = Project.find(params[:id])
   erb(:volunteers)
 end
 
 post('/projects/:id/volunteers') do
+
   volunteer = Volunteer.new({:name => params[:name], :project_id => params[:id], :id => nil})
   volunteer.save()
   @volunteers = Volunteer.all()
-  @projects = Project.all()
+  @project = Project.find(params[:id])
+  @projects = Project.find(params[:id])
   erb(:volunteers)
 
 end
@@ -105,24 +110,26 @@ end
 # end
 #
 get('/projects/:project_id/volunteers/:id') do
-  binding.pry
+  @project = Project.find(params[:project_id].to_i())
   @volunteer = Volunteer.find(params[:id].to_i())
   erb(:volunteer)
 end
-#
-# post('/volunteers/:id') do
-#   @volunteer = Volunteer.find(params[:id].to_i)
-#   @volunteer.update(params[:name])
-#   erb(:volunteer)
-# end
-#
-# patch('/volunteers/:id') do
-#   @volunteer = Volunteer.find(params[:id].to_i())
-#   values = *params.values
-#   @volunteer.update(params)
-#   @volunteers = Volunteer.all
-#   erb(:volunteers)
-# end
+
+post('/projects/:project_id/volunteers/:id') do
+  @project = Project.find(params[:project_id].to_i())
+  @volunteer = Volunteer.find(params[:id].to_i)
+  @volunteer.update(params[:name])
+  erb(:volunteers)
+end
+
+patch('/projects/:project_id/volunteers/:id') do
+  @project = Project.find(params[:project_id].to_i())
+  @volunteer = Volunteer.find(params[:id].to_i())
+  # values = *params.values
+  @volunteer.update(params[:name])
+  @volunteers = Volunteer.all
+  erb(:volunteers)
+end
 #
 # delete('/volunteers/:id') do
 #   @volunteer = Volunteer.find(params[:id].to_i())

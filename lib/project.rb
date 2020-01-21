@@ -52,20 +52,14 @@ class Project
   end
 
   def update(attributes)
-  if (attributes.has_key?(:title)) && (attributes.fetch(:title) != nil)
-    @title = attributes.fetch(:title)
-    DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
-  elsif (attributes.has_key?(:volunteer_title)) && (attributes.fetch(:volunteer_title) != nil)
-    volunteer_title = attributes.fetch(:volunteer_title)
-    volunteer = DB.exec("SELECT * FROM volunteers WHERE lower(title)='#{volunteer_title.downcase}';").first
-    if volunteer != nil
-      DB.exec("INSERT INTO projects_volunteers (volunteer_id, project_id) VALUES (#{volunteer['id'].to_i}, #{@id});")
+    if (attributes.has_key?(:title)) && (attributes.fetch(:title) != nil)
+      @title = attributes.fetch(:title)
+      DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id}")
     end
   end
-end
 
   def delete
-    DB.exec("DELETE FROM projects_volunteers WHERE project_id = #{@id};")
+    DB.exec("DELETE FROM volunteers WHERE project_id = #{@id};")
     DB.exec("DELETE FROM projects WHERE id = #{@id};")
   end
 
@@ -78,10 +72,10 @@ end
     Volunteer.find_by_project(self.id)
   end
 
-  def add_volunteer(volunteer_name)
-  volunteer = Volunteer.search(volunteer_name).first
-  DB.exec("INSERT INTO projects_volunteers (volunteer_id, project_id) VALUES (#{volunteer.id}, #{@id})")
-end
+#   def add_volunteer(volunteer_name)
+#   volunteer = Volunteer.search(volunteer_name).first
+#   DB.exec("INSERT INTO projects_volunteers (volunteer_id, project_id) VALUES (#{volunteer.id}, #{@id})")
+# end
 
 #   def volunteers
 #   volunteers = []
